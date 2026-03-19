@@ -89,6 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Coletar todos os dados do formulário
     function coletarDados() {
+        const totalPecas = pecas.reduce((acc, p) => acc + p.valor_total, 0);
+        const valorMaoDeObra = parseFloat(maoDeObraInput.value) || 0;
+        
         return {
             cliente: {
                 nome: document.getElementById('nome').value || 'Não informado',
@@ -98,11 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 data: document.getElementById('data').value
             },
             pecas: pecas,
+            total_pecas: totalPecas,
             mao_de_obra: {
                 descricao: document.getElementById('servico-desc').value || 'Não informada',
-                valor: parseFloat(maoDeObraInput.value) || 0
+                valor: valorMaoDeObra
             },
-            total_geral: pecas.reduce((acc, p) => acc + p.valor_total, 0) + (parseFloat(maoDeObraInput.value) || 0)
+            total_geral: totalPecas + valorMaoDeObra
         };
     }
 

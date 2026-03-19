@@ -53,6 +53,7 @@ def gerar_pdf_orcamento(dados):
         ('GRID', (0, 0), (-1, -1), 1, colors.black)
     ]))
     elements.append(pecas_table)
+    elements.append(Paragraph(f"<b>Total das Peças: R$ {dados['total_pecas']:.2f}</b>", styles['Normal']))
     elements.append(Spacer(1, 20))
     
     # Mão de Obra

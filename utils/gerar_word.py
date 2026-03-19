@@ -35,6 +35,8 @@ def gerar_word_orcamento(dados):
         row_cells[2].text = f"R$ {peca['valor_unitario']:.2f}"
         row_cells[3].text = f"R$ {peca['valor_total']:.2f}"
     
+    doc.add_paragraph(f"Total das Peças: R$ {dados['total_pecas']:.2f}").bold = True
+    
     # Mão de Obra
     doc.add_heading('Serviços e Mão de Obra', level=1)
     doc.add_paragraph(f"Descrição: {dados['mao_de_obra']['descricao']}")
